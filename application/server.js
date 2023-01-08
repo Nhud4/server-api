@@ -1,6 +1,7 @@
 const compression = require('compression')
 const express = require('express')
 const cors = require('cors')
+const routes = require('./routes')
 
 class AppServer {
 
@@ -12,6 +13,9 @@ class AppServer {
     this.server.use(express.urlencoded({ extended: true }))
     this.server.use(cors())
     this.server.use(compression())
+
+    // routing
+    this.server.use('/', routes)
   }
 }
 
