@@ -2,8 +2,12 @@ const packageJson = require('../package.json')
 const router = require('express').Router()
 const Wrapper = require('../helper/utils/wrapper')
 const { NotFoundError, ServiceUnavailableError } = require('../helper/error')
+const Test = require('./controller/test')
 
 const wrapper = new Wrapper()
+const test = new Test()
+
+router.get('/test', test.tets)
 
 router.get('/health', (_req, res) => {
   try {
